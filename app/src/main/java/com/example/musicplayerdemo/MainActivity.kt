@@ -38,32 +38,6 @@ class MainActivity : AppCompatActivity() {
         }
         mediaPlayer.setOnCompletionListener {
             next()
-        }
-
-        seekBar.setOnSeekBarChangeListener(object:SeekBar.OnSeekBarChangeListener{
-            override fun onProgressChanged(seekBar: SeekBar?, position: Int, fromUser: Boolean) {
-                if(fromUser){
-                    mediaPlayer.seekTo(position)
-                }
-            }
-
-            override fun onStartTrackingTouch(p0: SeekBar?) {
-            }
-
-            override fun onStopTrackingTouch(p0: SeekBar?) {
-            }
-
-        })
-        thread {
-            while (true) {
-                Thread.sleep(1000)
-                runOnUiThread {
-                    seekBar.progress = mediaPlayer.currentPosition
-                }
-            }
-        }
-
-    }
 
 
     fun onPlay(v: View){
